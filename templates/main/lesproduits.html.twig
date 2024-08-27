@@ -1,0 +1,50 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Les Produits
+{% endblock %}
+
+{% block body %}
+
+	<nav>
+
+		{% include 'main/header.html.twig' %}
+	</nav>
+	<h2 class="justify-content mt-8 text-xl ml-8 mb-8"> Tous Nos Articles </h2>
+	<body class="bg-gray-100 p-6">
+		<div class="container mx-auto">
+			<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+				{% for produit in lesproduits %}
+
+					<div class="bg-black shadow-md rounded-lg p-6">
+						<h2 class="text-xl text-white font-bold mb-2">Nom du Produit:
+							{{produit.name}}</h2>
+						<p class="text-white mb-4">Vendeur:{{produit.vendeur}}</p>
+						<div class="flex justify-between items-center mb-4">
+							<span class="text-[#fee035]">Stock :
+								<span class="font-semibold">{{produit.Quantité}}u</span>
+							</span>
+							<span class="text-[#fee035]">Prix :
+								<span class="font-semibold">{{produit.prix}}€</span>
+							</span>
+							<span class="text-[#fee035]">Poids :
+								<span class="font-semibold">{{produit.poids}}g</span>
+							</span>
+						</div>
+						<button class="bg-blue-500 text-white px-4 py-2 rounded">Voir Détails</button>
+					</div>
+				{% endfor %}
+			</div>
+		</div>
+<h2 class="justify-content mt-8 text-xl ml-8 mb-8">Pour ajouter les produits</h2>
+<a href="{{path('app_newproduits')}}"><button  class="bg-blue-500 text-white px-4 py-2 rounded">NewProduits</button>
+</a>
+
+		
+		</body>
+
+
+		<footer>
+			<p class=" text-center text-2xl text-[#fee035] px-3 py-3 bg-black mt-9 mb-9">© 2024 Gestion de Stock. Tous droits réservés.</p>
+		</footer>
+	</body>
+</div>{% endblock %}

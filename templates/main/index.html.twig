@@ -1,0 +1,66 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Gestion de stock
+{% endblock %}
+
+{% block body %}
+
+
+	<nav>
+
+		{% include 'main/header.html.twig' %}
+	</nav>
+
+	<section class=" flex flex-col bg-no-repeat md:bg-no-repeat bg-cover h-[100vh] " style="background-image:url('{{asset('images/stock1.jpg')}}')"></section>
+
+	<h1 class="text-center text-2xl px-3 py-3 text-[#fee035] bg-black mt-9 mb-9">Presentation</h1>
+
+	<div class="flex container mx-auto">
+		<div class="w1/2">
+			<img src="{{asset('images/stock5.jpg')}}" alt="">
+		</div>
+		<div class="w1/2">
+			<p class="justify-content text-center mt-8 text-xl mr-3 ml-3">Stockeeerr est une solution innovante de gestion de stock conçue pour optimiser la gestion des inventaires des entreprises de toutes tailles. Grâce à son interface intuitive et ses fonctionnalités avancées, Stockeeerr permet de suivre en temps réel les mouvements de stock, de gérer les multi-entrepôts, et de générer des rapports détaillés pour une meilleure prise de décision. En intégrant des outils de traçabilité et des notifications personnalisables, Stockeeerr assure une gestion efficace et proactive des stocks, réduisant ainsi les risques de rupture ou de surstockage. Que vous soyez une petite entreprise ou une grande organisation, Stockeeerr s’adapte à vos besoins spécifiques pour améliorer votre chaîne d’approvisionnement et augmenter votre rentabilité.
+			</p>
+		</div>
+	</div>
+	<div>
+		<h1 class="text-center text-2xl text-[#fee035] px-3 py-3 bg-black mt-9 mb-9">Gestion de Stock</h1>
+	</div>
+	<main>
+		<h2 class="justify-content mt-8 text-xl ml-8 mb-8">Nos Articles Vedettes les plus stockés</h2>
+		<body class="bg-gray-100 p-6">
+			<div class="container mx-auto">
+				<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+					{% for produit in produits|slice(0, 9) %}
+                   
+						<div class="bg-black shadow-md rounded-lg p-6">
+							<h2 class="text-xl text-white font-bold mb-2">Nom du Produit:  {{produit.name}}</h2>
+							<p class="text-white mb-4">Vendeur:{{produit.vendeur}}</p>
+							<div class="flex justify-between items-center mb-4">
+								<span class="text-[#fee035]">Stock :
+									<span class="font-semibold">{{produit.Quantité}}u</span>
+								</span>
+								<span class="text-[#fee035]">Prix :
+									<span class="font-semibold">{{produit.prix}}€</span>
+								</span>
+								<span class="text-[#fee035]">Poids :
+									<span class="font-semibold">{{produit.poids}}g</span>
+								</span>
+							</div>
+							<button class="bg-blue-500 text-white px-4 py-2 rounded">Voir Détails</button>
+						</div>
+					{% endfor %}
+				</div>
+			</div>
+		</body>
+
+	</main>
+
+
+	<footer>
+		<p class=" text-center text-2xl text-[#fee035] px-3 py-3 bg-black mt-9 mb-9">© 2024 Gestion de Stock. Tous droits réservés.</p>
+	</footer>
+
+</div>{% endblock %}
+
